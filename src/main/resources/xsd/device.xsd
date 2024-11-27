@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Перелічувані типи -->
+    <xs:simpleType name="PeripheralType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="периферійне"/>
+            <xs:enumeration value="не_периферійне"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="CoolingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="так"/>
+            <xs:enumeration value="ні"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PortType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="COM"/>
+            <xs:enumeration value="USB"/>
+            <xs:enumeration value="LPT"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Елемент Device -->
+    <xs:element name="Device">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Component" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Type">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Peripheral" type="PeripheralType"/>
+                                        <xs:element name="EnergyConsumption" type="xs:int"/>
+                                        <xs:element name="Cooling" type="CoolingType"/>
+                                        <xs:element name="Group" type="xs:string"/>
+                                        <xs:element name="Ports">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Port" type="PortType" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="Name" type="xs:string" use="required"/>
+                        <xs:attribute name="Origin" type="xs:string" use="required"/>
+                        <xs:attribute name="Price" type="xs:decimal" use="required"/>
+                        <xs:attribute name="Critical" type="xs:boolean" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

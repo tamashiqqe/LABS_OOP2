@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/device.xsd">
+    <Component Name="Graphics Card" Origin="USA" Price="15000.00" Critical="true">
+        <Type>
+            <Peripheral>не_периферійне</Peripheral>
+            <EnergyConsumption>250</EnergyConsumption>
+            <Cooling>так</Cooling>
+            <Group>мультимедійні</Group>
+            <Ports>
+                <Port>USB</Port>
+                <Port>COM</Port>
+            </Ports>
+        </Type>
+    </Component>
+    <Component Name="Keyboard" Origin="China" Price="1000.00" Critical="false">
+        <Type>
+            <Peripheral>периферійне</Peripheral>
+            <EnergyConsumption>5</EnergyConsumption>
+            <Cooling>ні</Cooling>
+            <Group>пристрої введення-виведення</Group>
+            <Ports>
+                <Port>USB</Port>
+            </Ports>
+        </Type>
+    </Component>
+</Device>
